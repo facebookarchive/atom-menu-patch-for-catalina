@@ -145,6 +145,7 @@ async function monkeyPatchContextMenus() {
       font-family: -apple-system, BlinkMacSystemFont, sans-serif;
       color: black;
       padding: 4px 0;
+      z-index: 12;
     }
     .context-menu ul:not(:first-child) {
       border-top: 2px solid rgb(145,148,153);
