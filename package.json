@@ -1,7 +1,7 @@
 {
   "name": "atom-menu-patch-for-catalina",
   "main": "./index",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "To work around https://github.com/atom/atom/issues/20034, replace atom's context menus with an HTML/CSS version so that electron menus are never invoked.",
   "repository": "https://github.com/facebookexperimental/atom-menu-patch-for-catalina",
   "license": "MIT",
