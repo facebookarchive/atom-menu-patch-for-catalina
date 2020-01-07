@@ -39,6 +39,7 @@ function getTextForAccelerator(accelerator) {
     .replace(/Shift\+/g, '\u21e7')
     .replace(/Alt\+/g, '\u2325')
     .replace(/Ctrl\+/g, '\u2303')
+    .replace('BACKSPACE', '\u232B')
     .replace('SPACE', '\u2423')
     .replace('TAB', '\u21E5')
     .replace('DELETE', '\u232B')
