@@ -130,6 +130,32 @@ function dispatchFakeWindowMouseDown() {
 }
 
 /**
+ * Monkey patch ContextMenu's display logic to clip the x/y to be larger than 0,
+ * and scroll when the size is too small otherwise.
+ */
+ContextMenu.prototype.adjustContextMenuClippingAndShow = function () {
+  const rootMenu = this.rootContextMenu;
+  rootMenu.style.visibility = 'hidden';
+  rootMenu.style.display = 'block';
+
+  const rootMenuBox = rootMenu.getBoundingClientRect();
+  let { x, y } = this.pos;
+  if (y + rootMenuBox.height > window.innerHeight) {
+      y -= rootMenuBox.height;
+  }
+  if (x + rootMenuBox.width > window.innerWidth) {
+      x -= rootMenuBox.width;
+  }
+  y = Math.max(0, y);
+  x = Math.max(0, x);
+  rootMenu.style.top = `${y}px`;
+  rootMenu.style.left = `${x}px`;
+  rootMenu.style.maxHeight = `100vh`;
+  rootMenu.style.overflow = `scroll`;
+  rootMenu.style.visibility = '';
+}
+
+/**
 * atom on macOS Catalina can crash when showing a context menu.
 * To prevent this, we can just stop atom from using `electron.remote.Menu` and instead
 * make our own HTML-based context menus.
