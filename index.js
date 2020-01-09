@@ -131,7 +131,8 @@ function dispatchFakeWindowMouseDown() {
 
 /**
  * Monkey patch ContextMenu's display logic to clip the x/y to be larger than 0,
- * and scroll when the size is too small otherwise.
+ * and scroll when the size is too small otherwise. Implementation mostly taken
+ * from the context-menu package itself.
  */
 ContextMenu.prototype.adjustContextMenuClippingAndShow = function () {
   const rootMenu = this.rootContextMenu;
