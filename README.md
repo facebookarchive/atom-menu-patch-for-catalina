@@ -1,3 +1,5 @@
+# NOTE: This workaround is no longer required as of Atom v1.47.0
+
 # Atom menu patch for macOS Catalina
 
 To work around https://github.com/atom/atom/issues/20034, replace atom's context menus with an HTML/CSS version so that electron menus are never invoked.
@@ -10,7 +12,8 @@ You can install this from within Atom, via the normal package installation proce
 
 This package monkey-patches part of `atom.contextMenu` to not use `electron.remote.Menu` and instead create an HTML/CSS menu via the `context-menu` library.
 
-This is only a workaround to the real problem, which lies within electron. Once electron gets upgraded, atom should be able to update to fix this. As of atom `0.41.0`, this is not yet fixed.
+This is only a workaround to the real problem, which lies within electron. As of atom `0.47.0`, the electron version has been updated, fixing this issue.
+
 HTML context menus have some downsides, such as being unable to go outside the window and looking different from native context menus. This package vaguely styles the menus similarly to native.
 This only gets applied on darwin and for versions `19.0.0` (macOS 10.15 Catalina) and above.
 
